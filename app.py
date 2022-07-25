@@ -15,7 +15,7 @@ from flask import Flask, request, jsonify, render_template
 import pickle
 
 # flask app
-app = Flask(__name__)
+app=Flask(__name__,template_folder='templates')
 # loading model
 model = pickle.load(open('modelbest.pkl', 'rb'))
 
