@@ -21,14 +21,14 @@ model = pickle.load(open('modelbest.pkl', 'rb'))
 
 @app.route('/')
 def home():
-    return render_template('index1.html')
+    return render_template('index.html')
 @app.route('/prediction' ,methods = ['POST'])
 def prediction():
     final_features = [float(x) for x in request.form.values()]
     final_features = [np.array(final_features)]
     prediction = model.predict(final_features)
     
-    return render_template('index1.html', output='Retailer Credit score is {}'.format(prediction))
+    return render_template('index.html', output='Retailer Credit score is {}'.format(prediction))
 
 
 if __name__=="__main__":
